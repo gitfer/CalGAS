@@ -44,11 +44,11 @@ function creaNuovoMese() {
   SpreadsheetApp.getActiveSpreadsheet().moveActiveSheet(1);
 };
 
-#function padLeft(valore){
-#var str = "" + valore;
-#var pad = "00";
-#return pad.substring(0, pad.length - str.length) + str;
-#}
+//function padLeft(valore){
+//var str = "" + valore;
+//var pad = "00";
+//return pad.substring(0, pad.length - str.length) + str;
+//}
 
 Date.prototype.addDays = function(days)
 {
