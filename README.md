@@ -1,4 +1,4 @@
 CalGAS
 ======
 
-Calendat Google AppScript tryout
+Calendar Google AppScript tryout
