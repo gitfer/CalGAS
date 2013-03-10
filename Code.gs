@@ -1,9 +1,3 @@
-/**
- * Retrieves all the rows in the active spreadsheet that contain data and logs the
- * values for each row.
- * For more information on using the Spreadsheet API, see
- * https://developers.google.com/apps-script/service_spreadsheet
- */
 function creaNuovoMese() {
   Logger.clear();
   var mesi = [ "Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre" ];
@@ -15,11 +9,9 @@ function creaNuovoMese() {
   
   var lastName = sheet.getName();
   var oldMonth = lastName.replace(/[0-9]*$/gi,"");
-  
-  Logger.log(oldMonth);
   var oldYear = parseInt(lastName.replace(oldMonth, ""));
-  
   var lastPos = mesi.indexOf(oldMonth);
+
   if(lastPos === 11){
     newMonthPos = 0;
     newYear = oldYear+1;
@@ -45,25 +37,18 @@ function creaNuovoMese() {
   var dateArray = [];
   for(var i=0, numRows=dateRowsCount-1; i<= numRows; i++){
     dateArray.push([initialDate.addDays(i)]);
-    //dateArray.push([padLeft(i+1)+"/"+padLeft(newMonthPos+1)+"/"+newYear]);
   }
    dateRowRange.setValues(dateArray);
   
   SpreadsheetApp.setActiveSheet(newSheet);
   SpreadsheetApp.getActiveSpreadsheet().moveActiveSheet(1);
-  //Logger.log(SpreadsheetApp.getActiveSpreadsheet().getSpreadsheetLocale());
-  
-  //var rows = sheet.getDataRange();
-  //var numRows = rows.getNumRows();
-  //var values = rows.getValues();
-
 };
 
-function padLeft(valore){
-var str = "" + valore;
-var pad = "00";
-return pad.substring(0, pad.length - str.length) + str;
-}
+#function padLeft(valore){
+#var str = "" + valore;
+#var pad = "00";
+#return pad.substring(0, pad.length - str.length) + str;
+#}
 
 Date.prototype.addDays = function(days)
 {
